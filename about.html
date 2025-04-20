@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - WELCOME TO CYBER XITERS</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      background: linear-gradient(270deg, #ff0000, #000000);
+      background-size: 400% 400%;
+      animation: glitchBackground 10s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    @keyframes glitchBackground {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 100% 50%; }
+      50% { background-position: 0% 50%; }
+      75% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+      padding: 10px;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff6ec4;
+      text-shadow: 0 0 15px #fff, 0 0 30px #ff6ec4;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+    }
+
+    .section {
+      max-width: 600px;
+      margin: 20px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      background: #ff0000;
+      color: #fff;
+      font-size: 1.2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #ff6ec4;
+      box-shadow: 0 0 50px #ff0000, 0 0 75px #ff0000;
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+   
+  </nav>
+
+  <h1>WELCOME TO CYBER XITERS</h1>
+
+  <div class="section">
+    <h2>WELCOME TO CYBER XITERS</h2>
+    <p>We develop panels for you and provide them to enhance your gaming experience. With our fully safe panels, you can win any match and dominate every game! Our panels are designed to boost your performance and ensure your gaming quality reaches the highest standards. Join us now and level up your game!</p>
+  </div>
+</body>
+</html>

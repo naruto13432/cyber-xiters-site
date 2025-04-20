@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - WELCOME TO CYBER XITERS</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      background: linear-gradient(270deg, #ff0000, #000000);
+      background-size: 400% 400%;
+      animation: glitchBackground 10s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Glitch Animation for Background */
+    @keyframes glitchBackground {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 100% 50%; }
+      50% { background-position: 0% 50%; }
+      75% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+      padding: 10px;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff6ec4;
+      text-shadow: 0 0 15px #fff, 0 0 30px #ff6ec4;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+    }
+
+    /* Glowing Text Animation */
+    .glowing-text {
+      font-size: 4rem;
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff6ec4, 0 0 50px #ff6ec4, 0 0 75px #ff6ec4;
+      animation: glowing 1.5s ease-in-out infinite;
+    }
+
+    @keyframes glowing {
+      0% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff6ec4, 0 0 50px #ff6ec4, 0 0 75px #ff6ec4; }
+      50% { text-shadow: 0 0 15px #ff6ec4, 0 0 30px #ff6ec4, 0 0 45px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff6ec4; }
+      100% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff6ec4, 0 0 50px #ff6ec4, 0 0 75px #ff6ec4; }
+    }
+
+    .section {
+      max-width: 600px;
+      margin: 20px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .contact-info {
+      font-size: 1.5rem;
+      color: white;
+      margin-top: 20px;
+      animation: fadeIn 1.5s forwards;
+    }
+    
+    .contact-info a {
+      color: #ff6ec4;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .contact-info a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #ff6ec4, 0 0 20px #ff6ec4;
+    }
+    
+    .btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      background: #ff0000;
+      color: #fff;
+      font-size: 1.2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #ff6ec4;
+      box-shadow: 0 0 50px #ff0000, 0 0 75px #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <h1 class="glowing-text">WELCOME TO CYBER XITERS</h1>
+
+  <div class="section">
+    <h2>Join our Discord Community</h2>
+    <a href="https://discord.com" target="_blank">
+      <button class="btn">Join Discord Channel</button>
+    </a>
+  </div>
+
+  <div class="section">
+    <h2>Contact Us</h2>
+    <p class="contact-info">If you have any questions or need support, feel free to reach out to us:</p>
+    <p class="contact-info">Email: <a href="mailto:support@cyberxiters.com">support@cyberxiters.com</a></p>
+    <p class="contact-info">Phone: +123-456-7890</p>
+    <p class="contact-info">We are here to assist you!</p>
+  </div>
+</body>
+</html>
