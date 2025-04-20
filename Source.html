@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Source - Cyber Xiters</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      background: linear-gradient(270deg, #ff0000, #000000);
+      background-size: 400% 400%;
+      animation: glitchBackground 10s ease infinite;
+      color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    @keyframes glitchBackground {
+      0%, 100% { background-position: 0% 50%; }
+      25%, 75% { background-position: 100% 50%; }
+      50% { background-position: 0% 50%; }
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+      padding: 10px;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff6ec4;
+      text-shadow: 0 0 15px #fff, 0 0 30px #ff6ec4;
+    }
+
+    .container {
+      padding-top: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      font-size: 4rem;
+      margin-bottom: 5px;
+      color: #ffffff;
+      text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      max-width: 600px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn {
+      margin: 15px;
+      padding: 10px 20px;
+      border: none;
+      background: #ff0000;
+      color: #fff;
+      font-size: 1.2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #ff6ec4;
+      box-shadow: 0 0 50px #ff0000, 0 0 75px #ff0000;
+    }
+
+    .message {
+      font-size: 1.3rem;
+      margin-top: 30px;
+      color: #ffbbbb;
+      text-shadow: 0 0 5px #000;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="Source.html">Basic Source</a>
+  </nav>
+
+  <div class="container">
+    <h2>CYBER XITERS</h2>
+    <h1>Basic Source</h1>
+
+    <div class="section">
+      <button class="btn">C# Basic Source</button>
+      <button class="btn">C++ Basic Source</button>
+      <p class="message">Other basic sources will be uploaded later.</p>
+    </div>
+  </div>
+</body>
+</html>
