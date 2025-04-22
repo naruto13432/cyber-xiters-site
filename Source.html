@@ -2,109 +2,185 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Basic Source - Cyber Xiters</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      height: 100vh;
-      background: linear-gradient(270deg, #ff0000, #000000);
-      background-size: 400% 400%;
-      animation: glitchBackground 10s ease infinite;
-      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #000;
+      color: #00ff00;
       margin: 0;
-      padding: 0;
-      text-align: center;
-      overflow-x: hidden;
-    }
-
-    @keyframes glitchBackground {
-      0%, 100% { background-position: 0% 50%; }
-      25%, 75% { background-position: 100% 50%; }
-      50% { background-position: 0% 50%; }
-    }
-
-    nav {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      display: flex;
-      gap: 20px;
-    }
-
-    nav a {
-      color: white;
-      font-size: 1.2rem;
-      text-decoration: none;
-      padding: 10px;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #ff6ec4;
-      text-shadow: 0 0 15px #fff, 0 0 30px #ff6ec4;
-    }
-
-    .container {
-      padding-top: 80px;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-height: 100vh;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      z-index: 2;
+    }
+
+    nav a {
+      color: #00ff00;
+      font-size: 1.2rem;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    nav a:hover {
+      transform: scale(1.1);
+      text-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
+    }
+
+    .container {
+      padding-top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
     h2 {
-      font-size: 4rem;
-      margin-bottom: 5px;
-      color: #ffffff;
-      text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+      font-size: 3rem;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+      animation: fadeIn 1s ease-in-out;
     }
 
     h1 {
-      font-size: 2.5rem;
-      text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+      font-size: 2rem;
       margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .section {
-      max-width: 600px;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0, 255, 0, 0.1);
+      border: 1px solid #00ff00;
+      padding: 30px;
       border-radius: 15px;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+      max-width: 600px;
+      width: 90%;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
+    .section:hover {
+      box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+    }
+
+    /* Flexbox to align buttons in a row */
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap; /* Wrap buttons if needed on smaller screens */
+      width: 100%;
+      max-width: 600px;
+    }
+
+    /* Enhanced Button Styling */
     .btn {
-      margin: 15px;
-      padding: 10px 20px;
-      border: none;
-      background: #ff0000;
-      color: #fff;
+      width: 150px; /* Ensures all buttons have the same width */
+      padding: 12px;
       font-size: 1.2rem;
-      border-radius: 25px;
+      background: transparent;
+      color: #00ff00;
+      border: 2px solid #00ff00;
+      border-radius: 12px;
       cursor: pointer;
-      box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
-      transition: transform 0.3s ease, background 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300%;
+      height: 300%;
+      background-color: #00ff00;
+      transition: all 0.4s ease;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .btn:hover::before {
+      width: 350%;
+      height: 350%;
+      opacity: 1;
     }
 
     .btn:hover {
-      transform: scale(1.1);
-      background: #ff6ec4;
-      box-shadow: 0 0 50px #ff0000, 0 0 75px #ff0000;
+      color: black;
+      box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
     }
 
     .message {
-      font-size: 1.3rem;
-      margin-top: 30px;
-      color: #ffbbbb;
-      text-shadow: 0 0 5px #000;
+      font-size: 1.2rem;
+      color: #aaffaa;
+      margin-top: 20px;
+      text-shadow: 0 0 5px #00ff00;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 2rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      /* Adjust button size for smaller screens */
+      .btn {
+        width: 120px;
+      }
     }
   </style>
 </head>
 <body>
+  <canvas id="matrixCanvas"></canvas>
+
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="Source.html">Basic Source</a>
+    <a href="index2.html">Home</a>
+    <a href="about2.html">About</a>
+    <a href="Source2.html">Basic Source</a>
   </nav>
 
   <div class="container">
@@ -112,10 +188,54 @@
     <h1>Basic Source</h1>
 
     <div class="section">
-      <button class="btn">C# Basic Source</button>
-      <button class="btn">C++ Basic Source</button>
+      <div class="btn-container">
+        <button class="btn" onclick="window.location.href='https://your-link-for-csharp.com'">C# Basic Source</button>
+        <button class="btn" onclick="window.location.href='https://your-link-for-cpp.com'">C++ Basic Source</button>
+        <button class="btn" onclick="window.location.href='https://your-link-for-java.com'">Java Source</button>
+        <button class="btn" onclick="window.location.href='https://your-link-for-python.com'">Python Source</button>
+      </div>
       <p class="message">Other basic sources will be uploaded later.</p>
     </div>
   </div>
+
+  <script>
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+
+    const drops = Array.from({ length: columns }).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#00ff00";
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 50);
+
+    window.addEventListener("resize", () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
+  </script>
 </body>
 </html>
